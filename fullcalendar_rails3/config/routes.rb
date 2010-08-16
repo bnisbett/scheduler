@@ -1,11 +1,15 @@
 FullcalendarRails3::Application.routes.draw do
-	match "/devevents.:format" => "events#devevents"   #, :as => :devevents
+  match "/login"=> "user_sessions#new"
+  match "/logout"  => "user_sessions#destroy"
+	match "/devevents.:format" => "events#devevents"   
   match "/itevents.:format" => "events#itevents"
 	match 'events/move' => 'events#move'
 	match 'events/destroy' => 'events#destroy'
 	match 'events/resize' => 'events#resize'
+	
+	resources :users
+  resources :user_sessions
   resources :events
-
   resources :supporters
 
   # The priority is based upon order of creation:
