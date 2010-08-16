@@ -1,36 +1,8 @@
-<h1>Listing events</h1>
+<h1>The Score Scheduler</h1>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Startdate</th>
-    <th>Enddate</th>
-    <th>Starttime</th>
-    <th>Endtime</th>
-    <th>Supporter</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @events.each do |event| %>
-  <tr>
-    <td><%= event.name %></td>
-    <td><%= event.startDate %></td>
-    <td><%= event.endDate %></td>
-    <td><%= event.startTime %></td>
-    <td><%= event.endTime %></td>
-    <td><%= event.supporter_id %></td>
-    <td><%= link_to 'Show', event %></td>
-    <td><%= link_to 'Edit', edit_event_path(event) %></td>
-    <td><%= link_to 'Destroy', event, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
+<% if current_user %>
 <%= link_to 'New Event', new_event_path, :remote => true %> 
+<% end %>
 <hr/>
 <div id ="calendar"></div>
 <div id = "desc_dialog" style ="display:none;">

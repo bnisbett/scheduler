@@ -121,5 +121,7 @@ $(document).ready(function(){
 
       
       });
+	$("#event_startDate").datepicker({dateFormat: 'yy-mm-dd'});
+	$("#event_endDate").datepicker({dateFormat: 'yy-mm-dd'});
 
   });

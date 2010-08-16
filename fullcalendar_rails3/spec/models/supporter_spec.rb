@@ -41,7 +41,7 @@ describe Supporter do
       supporter.should have(1).error_on(:phone)
     end
   end
-=begin  
+ 
   describe :supporter_with_incorrect_email_format do
     it "should validate format of phone number" do
       supporter = Factory.build(:supporter, :email => "123djeu@rsa33333eee")
@@ -49,5 +49,5 @@ describe Supporter do
       supporter.should have(1).error_on(:email)
     end
   end  
-=end  
+ 
 end
