@@ -11,8 +11,9 @@
   <br/>
   <br/>
   <div id = "event_actions">
-    <span id = "edit_event"></span>
-    <span id = "delete_event"></span>
+	<% if current_user %>
+    <span id = "edit_event"></span> | <span id = "delete_event"></span>
+	<% end %>
   </div>
 </div>
 <div id = "create_event_dialog" style ="display:none;">

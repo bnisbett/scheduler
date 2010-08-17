@@ -1,4 +1,6 @@
 class EventsController < ApplicationController
+  before_filter :require_user, :except => [:index]
+
   # GET /events
   # GET /events.xml
   def index
@@ -7,7 +9,7 @@ class EventsController < ApplicationController
 
 		eventsArray = [] 
     @nowevents.each do |event|
-      eventsArray << {:id => event.id, :title => "#{event.supporter.name}", :start => "#{event.startDate.to_time.iso8601}", :end => "#{event.endDate.to_time.iso8601}", :className => "#{event.supporter.isIT}"}
+      eventsArray << {:id => event.id,:allDay => false, :title => "#{event.supporter.name}", :start => "#{event.startDate.to_s + " " + event.startTime.to_s[11..18]}", :end => "#{event.endDate.to_s + " " + event.endTime.to_s[11..18]}", :className => "#{event.supporter.isIT}"}
     end
 
     respond_to do |format|
@@ -107,6 +109,7 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     if @event
       @event.endDate = (params[:minute_delta].to_i).minutes.from_now((params[:day_delta].to_i).days.from_now(@event.endDate))
+      @event.endTime = (params[:minute_delta].to_i).minutes.from_now(@event.endTime)
       @event.save
     end    
   end
