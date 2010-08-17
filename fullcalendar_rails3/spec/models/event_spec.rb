@@ -1,6 +1,21 @@
 require 'spec_helper'
 
 describe Event do
+  before(:each) do
+      @valid_attributes = {
+        :name => "Event Title",
+        :startDate=>"2010-01-01"
+        :endDate=>"2011-01-01"
+        :startTime=>"2000-01-01 14:00:00"
+        :endTime =>"2000-01-01 16:00:00" 
+        :supporter_id => 1
+      }
+    end
+
+    it "should create a new instance given valid attributes" do
+      Event.create!(@valid_attributes)
+    end
+    
   describe :event_without_name do
     it "should validate presence of name" do
       event = Factory.build(:event, :name => nil)

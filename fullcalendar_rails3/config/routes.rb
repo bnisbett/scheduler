@@ -6,6 +6,7 @@ FullcalendarRails3::Application.routes.draw do
 	match 'events/move' => 'events#move'
 	match 'events/destroy' => 'events#destroy'
 	match 'events/resize' => 'events#resize'
+	match 'events/list' => 'events#list'
 	
 	resources :users
   resources :user_sessions
