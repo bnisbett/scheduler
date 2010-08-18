@@ -14,11 +14,15 @@
   <b>Phone:</b>
   <%= @supporter.phone %>
 </p>
-
+<% if @supporter.isIT? %>
 <p>
-  <b>Isit:</b>
-  <%= @supporter.isIT %>
+	<b>Role:</b> IT
 </p>
+<% else %>
+<p>
+	<b>Role:</b> Developer
+</p>
+<% end %>
 
 
 <%= link_to 'Edit', edit_supporter_path(@supporter) %> |

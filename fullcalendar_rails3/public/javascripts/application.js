@@ -74,8 +74,7 @@ function resizeEvent(event, dayDelta, minuteDelta){
     });
 }
 
-$(document).ready(function(){
-			
+$(document).ready(function(){		
       // page is now ready, initialize the calendar...
       $('#calendar').fullCalendar({
           editable: true,
@@ -121,7 +120,7 @@ $(document).ready(function(){
 
       
       });
-	$("#event_startDate").datepicker({dateFormat: 'yy-mm-dd'});
-	$("#event_endDate").datepicker({dateFormat: 'yy-mm-dd'});
+//	$("#event_startDate").datepicker({dateFormat: 'yy-mm-dd'});
+//	$("#event_endDate").datepicker({dateFormat: 'yy-mm-dd'});
 
   });

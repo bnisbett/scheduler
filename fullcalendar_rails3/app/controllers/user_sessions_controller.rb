@@ -23,7 +23,7 @@ class UserSessionsController < ApplicationController
     def destroy
       current_user_session.destroy
       respond_to do |format|
-        format.html { redirect_to(new_user_session_url, :notice => 'Logout Successful') }
+        format.html { redirect_to(events_url, :notice => 'Logout Successful') }
         format.xml  { head :ok }
       end
     end

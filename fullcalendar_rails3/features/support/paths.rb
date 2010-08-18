@@ -12,7 +12,7 @@ module NavigationHelpers
       '/'
 
     when /the list of events/
-      list_events_path
+      '/events/list'
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #

@@ -1,29 +1,15 @@
-<h1>Listing supporters</h1>
+<h1>On Call Supporters</h1>
+<hr />
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Email</th>
-    <th>Phone</th>
-    <th>Isit</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<%= link_to 'Add Supporter', new_supporter_path %>
 
-<% @supporters.each do |supporter| %>
-  <tr>
-    <td><%= supporter.name %></td>
-    <td><%= supporter.email %></td>
-    <td><%= supporter.phone %></td>
-    <td><%= supporter.isIT %></td>
-    <td><%= link_to 'Show', supporter %></td>
-    <td><%= link_to 'Edit', edit_supporter_path(supporter) %></td>
-    <td><%= link_to 'Destroy', supporter, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+<h1> Developers </h1>
+<% @devs.each do |dev| %>
+	<%= link_to h(dev.name), dev %>
 <% end %>
-</table>
 
-<br />
+<h1> IT </h1>
+<% @its.each do |it| %>
+	<%= link_to h(it.name), it %>
+<% end %>
 
-<%= link_to 'New Supporter', new_supporter_path %>

@@ -17,25 +17,29 @@
   </div>
   <div class="field">
     <%= f.label :startDate, 'Start Date' %><br />
-		<%= f.date_select :startDate %>
+		<%= f.text_field :startDate %>
 
   </div>
   <div class="field">
     <%= f.label :endDate, 'End Date' %><br />
-		<%= f.date_select :endDate %>
+		<%= f.text_field :endDate %>
 
   </div>
   <div class="field">
     <%= f.label :startTime, 'Start Time' %><br />
-    <%= f.time_select :startTime %>
+    <%= f.time_select :startTime, {:minute_step => 15} %>
   </div>
   <div class="field">
     <%= f.label :endTime, 'End Time' %><br />
-    <%= f.time_select :endTime %>
+    <%= f.time_select :endTime, {:minute_step => 15} %>
   </div>
 	<div class="field">
     <%= f.label :supporter_id, 'Who?' %><br />
-		<%= f.collection_select( :supporter_id, Supporter.all, :id, :name) %>
+		<% if current_user.login == "it" %>
+			<%= f.collection_select( :supporter_id, Supporter.its, :id, :name) %>
+		<% else %>
+	  	<%= f.collection_select( :supporter_id, Supporter.devs, :id, :name) %>
+	<% end %>
   </div>
   <div class="actions">
     <%= f.submit %>

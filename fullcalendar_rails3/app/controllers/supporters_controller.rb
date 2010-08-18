@@ -3,6 +3,8 @@ class SupportersController < ApplicationController
   # GET /supporters.xml
   def index
     @supporters = Supporter.all
+    @devs = Supporter.devs
+    @its = Supporter.its
 
     respond_to do |format|
       format.html # index.html.erb

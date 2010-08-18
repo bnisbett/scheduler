@@ -1,1 +1,3 @@
 $("#event_desc").html("<%= escape_javascript(render(:partial => 'form')) %>");
+$("#event_startDate").datepicker({dateFormat: 'yy-mm-dd'});
+$("#event_endDate").datepicker({dateFormat: 'yy-mm-dd'});
