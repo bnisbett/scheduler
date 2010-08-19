@@ -1,4 +1,5 @@
 $("#create_event").html("<%= escape_javascript(render(:partial => 'form')) %>");
+
 $('#create_event_dialog').dialog({
         title: 'New Event',
         modal: true,
@@ -11,8 +12,18 @@ $('#create_event_dialog').dialog({
 				}
 
     });
+$("#new_event").validate({	
+	rules: {
+	"event[name]": {required: true},
+	"event[startDate]": {required: true},
+	"event[endDate]": {required: true},
+	"event[startTime]": {required: true},
+	"event[endTime]": {required: true},
+	"event[supporter_id]": {required: true},
+	}
+});
 $("#event_startDate").datepicker({dateFormat: 'yy-mm-dd'});
 $("#event_endDate").datepicker({dateFormat: 'yy-mm-dd'});
-$('#new_event').submitWithAjax();
 
-
+//ajaxLinks()
+//$('#new_event').submitWithAjax();

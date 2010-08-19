@@ -3,10 +3,10 @@
 <head>
   <title>The Score On Call Scheduler</title>
   <%= stylesheet_link_tag :all %>
-  <%= javascript_include_tag "jquery","jquery-ui","fullcalendar","fullcalendar.min","gcal","jquery.rails","application" %>
+  <%= javascript_include_tag "jquery","jquery-ui","fullcalendar","jquery.validate.min","fullcalendar.min","gcal","jquery.rails","application" %>
   <%= csrf_meta_tag %>
 </head>
-<body>
+<body class = <%= "#{controller_name.dasherize}" %> id= <%="#{action_name.dasherize}" %> >
 	<div id="user-nav">
 			 <% if current_user %>
 				<%= link_to "Supporters", supporters_path%> |

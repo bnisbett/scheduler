@@ -74,7 +74,9 @@ function resizeEvent(event, dayDelta, minuteDelta){
     });
 }
 
-$(document).ready(function(){		
+$(document).ready(function(){
+
+			
       // page is now ready, initialize the calendar...
       $('#calendar').fullCalendar({
           editable: true,
