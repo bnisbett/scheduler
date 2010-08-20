@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe Event do
+=begin
   before(:each) do
       @valid_attributes = {
         :name => "Event Title",
@@ -15,7 +16,7 @@ describe Event do
     it "should create a new instance given valid attributes" do
       Event.create!(@valid_attributes)
     end
-    
+=end    
   describe :event_without_name do
     it "should validate presence of name" do
       event = Factory.build(:event, :name => nil)
