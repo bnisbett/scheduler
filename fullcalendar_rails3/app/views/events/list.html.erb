@@ -13,7 +13,7 @@
 
 <% @events.each do |event| %>
   <tr>
-    <td><%= event.name %></td>
+    <td><%= h event.name %></td>
     <td><%= event.startDate %></td>
     <td><%= event.endDate %></td>
     <td><%= event.startTime %></td>

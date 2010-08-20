@@ -73,13 +73,31 @@ function resizeEvent(event, dayDelta, minuteDelta){
         url: "/events/resize"
     });
 }
+/*
+$.validator.addMethod("greaterThanZero", function(value, element) {
+var the_list_array = $("#some_form .super_item:checked");
+return the_list_array.length > 0;
+}, "* Check at least one checkbox");
+
+jQuery.validator.addMethod("greaterThanZero", function(value, element) {
+    return this.optional(element) || (parseFloat(value) > 0);
+}, "* Amount must be greater than zero");
+
+jQuery.validator.addMethod("math", function(value, element, params) { 
+ return this.optional(element) || value == params[0] + params[1]; 
+}, jQuery.format("Please enter the correct value for {0} + {1}"));
+*/
+
+
+
+
 
 $(document).ready(function(){
 
 			
       // page is now ready, initialize the calendar...
       $('#calendar').fullCalendar({
-          editable: true,
+          editable: false,
           header: {
               left: 'prev,next today',
               center: 'title',

@@ -1,8 +1,9 @@
 class Event < ActiveRecord::Base
 	belongs_to :supporter
 	
-  #validate :endDate_cannot_be_in_the_past
+  
   validates :startDate,:endDate,:name,:supporter_id,:startTime,:endTime, :presence => true
+  validate  :endDate_cannot_be_in_the_past
 
   def endDate_cannot_be_in_the_past
         errors.add(:endDate,"can't be in the past") if endDate < startDate

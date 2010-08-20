@@ -17,8 +17,7 @@ group :test do
   gem 'cucumber'
   gem 'capybara'
   gem 'factory_girl_rails'
-  gem 'database_cleaner'
-  
+  gem 'database_cleaner'  
   gem 'pickle'
 end
 
