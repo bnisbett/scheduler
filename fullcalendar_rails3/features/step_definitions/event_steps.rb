@@ -1,5 +1,6 @@
 Given /^I have event named "(.+)"$/ do |name|
-    Factory.create(:event, :name => name)
+    puts "\n\n\n\n #{name} \n\n\n\n"
+    Factory(:event, :name => name)
 end
 
 Given /^I have the following events$/ do |table|  

@@ -4,7 +4,7 @@ class CreateSupporters < ActiveRecord::Migration
       t.string :name
       t.string :email
       t.string :phone
-      t.boolean :isIT
+      t.boolean :isIT, :default => 0
 
       t.timestamps
     end

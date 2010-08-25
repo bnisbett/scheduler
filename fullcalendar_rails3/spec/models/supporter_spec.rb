@@ -25,7 +25,7 @@ describe Supporter do
       supporter.should have(2).error_on(:email) # We expect 2 errors - email empty and in wrong format because it is empty
     end
   end
-  
+begin
   describe :supporter_without_isIT do
     it "should validate presence of IT/Developer Status" do
       supporter = Factory.build(:supporter, :isIT => nil)
@@ -33,7 +33,7 @@ describe Supporter do
       supporter.should have(1).error_on(:isIT)
     end
   end
-  
+end  
   describe :supporter_with_incorrect_phone_format do
     it "should validate format of phone number" do
       supporter = Factory.build(:supporter, :phone => "123djeursa33333eee")

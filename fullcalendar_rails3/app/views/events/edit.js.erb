@@ -1,9 +1,9 @@
 $("#event_desc").html("<%= escape_javascript(render(:partial => 'form')) %>");
 
 $.validator.addMethod("endDateGreater", function(value,element,params){
-	var startDate = new Date($('#event_startDate').val());
-	var endDate = new Date($('#event_endDate').val());
-	return this.optional(element) || endDate > startDate;
+	var startDate = new Date($('#event_startDate').val().slice(0,10));
+	var endDate = new Date($('#event_endDate').val().slice(0,10));
+	return this.optional(element) || endDate >= startDate;
 }, jQuery.format("End Date Must Be Greater Than Start Date"));
 
 $("body#index.events form").validate({	

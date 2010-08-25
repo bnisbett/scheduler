@@ -1036,7 +1036,6 @@ views.basicDay = function(element, options, viewName) {
 	}, viewName);
 };
 
-
 // rendering bugs
 
 var tdHeightBug;

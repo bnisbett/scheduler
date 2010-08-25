@@ -19,6 +19,9 @@ group :test do
   gem 'factory_girl_rails'
   gem 'database_cleaner'  
   gem 'pickle'
+  gem 'autotest'
+  gem 'autotest-rails-pure'
+  gem 'autotest-fsevent'
 end
 
 

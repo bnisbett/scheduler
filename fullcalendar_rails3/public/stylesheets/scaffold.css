@@ -74,4 +74,20 @@ div.field, div.actions {
 		width: 16px;
 		height: 16px;
 	}
-
+#agenda td {
+	border-bottom: 1px solid #CCCCCC;
+	padding: 10px 0;
+	text-align:left;
+	vertical-align:top;
+	white-space:nowrap;
+	width:1%;
+}
+#agenda th {
+	border-bottom:1px solid #CCCCCC;
+	font-weight:bold;
+	padding:10px;
+	text-align:left;
+	vertical-align:top;
+	white-space:nowrap;
+	width:1%;
+}

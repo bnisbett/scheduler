@@ -1,31 +1,19 @@
-<h1>Listing events</h1>
-
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Start</th>
-    <th>End</th>
-    <th>Start Time</th>
-    <th>End Time</th>
-    <th>Supp</th>
-    <th></th>
-  </tr>
+<h1>Agenda</h1>
+<hr/>
+<div id="agenda">
+<table >
 
 <% @events.each do |event| %>
-  <tr>
-    <td><%= h event.name %></td>
-    <td><%= event.startDate %></td>
-    <td><%= event.endDate %></td>
-    <td><%= event.startTime %></td>
-    <td><%= event.endTime %></td>
-    <td><%= event.supporter.name %></td>
-    <td><%= link_to 'Show', event %></td>
-    <td><%= link_to 'Edit', edit_event_path(event) %></td>
-    <td><%= link_to 'Destroy', event, :confirm => 'Are you sure?', :method => :delete %></td>
+	  <tr>
+
+    <th><%= event.startDate.strftime("%a, %d %b %Y") %></th>
+
+   <td><%=h event.startTime.strftime("%I:%M%p") %> - <%= event.endTime.strftime("%I:%M%p") %></td>
+    <td><%=h event.supporter.name %></td>
   </tr>
 <% end %>
 </table>
-
+</div>
 <br />
 
-<%= link_to 'New event', :action=>"list" %>
+<%= link_to 'Home', events_path %>

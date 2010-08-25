@@ -1,22 +1,15 @@
 require 'spec_helper'
 
 describe Event do
-=begin
-  before(:each) do
-      @valid_attributes = {
-        :name => "Event Title",
-        :startDate=>"2010-01-01"
-        :endDate=>"2011-01-01"
-        :startTime=>"2000-01-01 14:00:00"
-        :endTime =>"2000-01-01 16:00:00" 
-        :supporter_id => 1
-      }
-    end
 
-    it "should create a new instance given valid attributes" do
-      Event.create!(@valid_attributes)
-    end
-=end    
+describe :event_endDate_before_startDate do
+   it "should validate endDate is not less than startDate" do
+     event = Factory.build(:event, :startDate => "2010-09-11", :endDate => "2008-09-12")
+     event.should be_invalid
+     event.should have(1).error_on(:endDate)
+   end
+ end
+
   describe :event_without_name do
     it "should validate presence of name" do
       event = Factory.build(:event, :name => nil)
@@ -56,14 +49,8 @@ describe Event do
       event.should have(1).error_on(:supporter_id)
     end
   end
-=begin  
-  describe :event_endDate_before_startDate do
-     it "should validate endDate is not less than startDate" do
-       event = Factory.build(:event, :startDate => '2010-09-11', :endDate => '2008-09-12')
-       event.should be_invalid
-       event.should have(1).error_on(:endDate)
-     end
-   end
-=end
+ 
+
+
   
 end
