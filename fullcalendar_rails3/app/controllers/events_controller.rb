@@ -1,8 +1,8 @@
 class EventsController < ApplicationController
-  before_filter :require_user, :except => [:index]
+  before_filter :require_user, :except => [:index,:list]
 
   def list
-		@events = Event.all
+		@events = Event.soon_on_call
 	end
   # GET /events
   # GET /events.xml

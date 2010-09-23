@@ -6,11 +6,11 @@ class Event < ActiveRecord::Base
   validate :endDate_cannot_be_in_the_past
 
   def endDate_cannot_be_in_the_past
-        errors.add(:endDate,"can't be in the past") if (!(startDate.blank? || endDate.blank?) && (self.startDate > self.endDate))
-    end
-=begin
-	def self.soon_on_call
-    where({:startDate => Date.yesterday..Date.today.end_of_week} | {:endDate =>Date.yesterday..Date.today.end_of_week})
+    errors.add(:endDate,"can't be in the past") if (!(startDate.blank? || endDate.blank?) && (self.startDate > self.endDate))
   end
-=end
+
+	def self.soon_on_call
+    where({:startDate => Date.yesterday..Date.today.end_of_week} | {:endDate =>Date.yesterday..Date.today.end_of_week}).order("startDate") 
+  end
+
 end

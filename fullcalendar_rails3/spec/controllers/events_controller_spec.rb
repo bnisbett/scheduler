@@ -11,15 +11,63 @@ describe EventsController do
     end
   end
   
+  describe "Authenticated examples" do
+      before(:each) do
+        activate_authlogic
+        UserSession.create Factory.build(:valid_user)
+      end
+      
+      describe "handling GET /events" do
+        before(:each) do
+          @event = mock(:event)
+          Event.should_receive(:find).and_return(@event)
+          #Event.stub!(:find).and_return([@event])
+        end
+        
+        it "should be successful" do
+          get :edit, :id => "1"
+          response.should be_success
+        end
+
+        it "should render edit template" do
+          get :edit, :id => '1'
+          response.should render_template('edit')
+        end
+        
+        it "should render show template" do
+          get :show, :id => '1'
+          response.should render_template('show')
+        end
+      end
+    end
+end
+  
+  
+  
+  
+  
+=begin   
+  describe 'GET edit' do
+    before { login }
+    it 'should render edit js view' do
+      events = [mock(:event), mock(:event)]
+      Event.should_receive(:all).and_return(events)
+      get :edit, :format =>'js'
+      response.should render_template('events/edit.js.erb')
+    end
+  end
+    
+ 
   describe "edit format js" do
     it "should respond to javascript" do
       event = mock(:event)
       Event.should_receive(:find).and_return(event)
+      get 'edit'
       #@event = mock(:event)
       #Event.should_receive(:find).and_return(@event)          
-      get :edit, :format => 'js'
-      #assigns[:event].should == event
-      #response.should be_success
+      #get :edit, :format => 'js'
+      #response.should render_template('events/edit')
+
     end
   end
   
@@ -61,5 +109,5 @@ describe EventsController do
       #response.should render_template('events/destroy.js.erb')
     end
   end
+=end
 
-end

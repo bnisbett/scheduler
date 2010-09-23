@@ -6,10 +6,9 @@
 <% @events.each do |event| %>
 	  <tr>
 
-    <th><%= event.startDate.strftime("%a, %d %b %Y") %></th>
-
-   <td><%=h event.startTime.strftime("%I:%M%p") %> - <%= event.endTime.strftime("%I:%M%p") %></td>
-    <td><%=h event.supporter.name %></td>
+    <td><%= event.startDate.strftime("%a, %d %b %Y") %> at <%=h event.startTime.strftime("%I:%M%p") %></td>
+   	<td><%= event.endDate.strftime("%a, %d %b %Y") %> at <%= event.endTime.strftime("%I:%M%p") %></td>
+    <th><%=h event.supporter.name %></th>
   </tr>
 <% end %>
 </table>

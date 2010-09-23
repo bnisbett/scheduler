@@ -16,20 +16,8 @@ $('#create_event_dialog').dialog({
 $.validator.addMethod("endDateGreater", function(value,element,params){
 	var startDate = new Date($('#event_startDate').val());
 	var endDate = new Date($('#event_endDate').val());
-	return this.optional(element) || endDate > startDate;
+	return this.optional(element) || endDate >= startDate;
 }, jQuery.format("End Date Must Be Greater Than Start Date"));
-
-/*
-$.validator.addMethod("endDateGreater", function(value, element, params) {
-        if (!/Invalid|NaN/.test(new Date(value))) {
-            return new Date(value) > new Date($(params[1]).val());
-        }
-        return isNaN(value) && isNaN($(params[1]).val()) || (parseFloat(value) > parseFloat($(params[1]).val() ) ); 
-    },'Must be greater than {1}.');
-
-
-*/
-
 	
 $("#new_event").validate({	
 	rules: {

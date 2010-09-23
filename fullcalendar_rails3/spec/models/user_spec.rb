@@ -49,5 +49,10 @@ describe User do
       user.should have(2).error_on(:login)
     end
   end
+  describe :valid_user_factory do
+    it "should succeed creating a new :valid_user from the Factory" do
+      Factory.create(:valid_user)
+    end
+  end
   
 end
