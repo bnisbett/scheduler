@@ -2,17 +2,16 @@
 <hr/>
 <div id="agenda">
 <table >
-
+<th>Start Date</th>
+<th>End Date</th>
+<th>Supporter</th>
 <% @events.each do |event| %>
+		
 	  <tr>
-
     <td><%= event.startDate.strftime("%a, %d %b %Y") %> at <%=h event.startTime.strftime("%I:%M%p") %></td>
    	<td><%= event.endDate.strftime("%a, %d %b %Y") %> at <%= event.endTime.strftime("%I:%M%p") %></td>
-    <th><%=h event.supporter.name %></th>
+    <td><%=h event.supporter.name %></td>
   </tr>
 <% end %>
 </table>
 </div>
-<br />
-
-<%= link_to 'Home', events_path %>

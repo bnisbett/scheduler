@@ -8,7 +8,7 @@
 </head>
 <body class = <%= "#{controller_name.dasherize}" %> id= <%="#{action_name.dasherize}" %> >
 	<div id="user-nav">
-		<%= link_to 'Home', events_path %> |
+		<%= link_to 'Home', events_path %> | <%= link_to "On Call Now", "events/list" %> |
 	  <% if current_user %>
 			<%= link_to "Supporters", supporters_path%> |
 		  <%= link_to "Edit Profile", edit_user_path(:current) %> |
