@@ -94,7 +94,6 @@ jQuery.validator.addMethod("math", function(value, element, params) {
 
 $(document).ready(function(){
 
-			
       // page is now ready, initialize the calendar...
       $('#calendar').fullCalendar({
           editable: false,
@@ -140,7 +139,7 @@ $(document).ready(function(){
 
       
       });
-//	$("#event_startDate").datepicker({dateFormat: 'yy-mm-dd'});
-//	$("#event_endDate").datepicker({dateFormat: 'yy-mm-dd'});
+	//$("#event_startDate").datepicker({dateFormat: 'yy-mm-dd'});
+	//$("#event_endDate").datepicker({dateFormat: 'yy-mm-dd'});
 
   });
