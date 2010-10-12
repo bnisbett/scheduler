@@ -13,9 +13,9 @@ class EventsController < ApplicationController
 		eventsArray = [] 
     @nowevents.each do |event|
       if current_user
-        eventsArray << {:id => event.id,:allDay => false, :editable => true, :title => "#{event.supporter.name}", :start => "#{event.startDate.to_s + " " + event.startTime.to_s[11..18]}", :end => "#{event.endDate.to_s + " " + event.endTime.to_s[11..18]}", :className => "#{event.supporter.isIT}"}
+        eventsArray << {:id => event.id,:allDay => event.all_day, :editable => true, :title => "#{event.supporter.name}", :start => "#{event.startDate.to_s + " " + event.startTime.to_s[11..18]}", :end => "#{event.endDate.to_s + " " + event.endTime.to_s[11..18]}", :className => "#{event.supporter.isIT}"}
       else
-        eventsArray << {:id => event.id,:allDay => false, :title => "#{event.supporter.name}", :start => "#{event.startDate.to_s + " " + event.startTime.to_s[11..18]}", :end => "#{event.endDate.to_s + " " + event.endTime.to_s[11..18]}", :className => "#{event.supporter.isIT}"}
+        eventsArray << {:id => event.id,:allDay => event.all_day, :title => "#{event.supporter.name}", :start => "#{event.startDate.to_s + " " + event.startTime.to_s[11..18]}", :end => "#{event.endDate.to_s + " " + event.endTime.to_s[11..18]}", :className => "#{event.supporter.isIT}"}
       end
     end
 

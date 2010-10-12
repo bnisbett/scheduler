@@ -57,9 +57,9 @@ function deleteEvent(event_id, delete_all){
         url: "/events/destroy"
     });
 }
-function moveEvent(event, dayDelta, minuteDelta){
+function moveEvent(event, dayDelta, minuteDelta, allDay){
     jQuery.ajax({
-        data: 'id=' + event.id + '&title=' + event.title + '&day_delta=' + dayDelta + '&minute_delta=' + minuteDelta,
+        data: 'id=' + event.id + '&title=' + event.title + '&day_delta=' + dayDelta + '&minute_delta=' + minuteDelta + '&all_day=' + allDay,
         dataType: 'script',
         type: 'post',
         url: "/events/move"

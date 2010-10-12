@@ -14,21 +14,23 @@
   <div class="field">
     <%= f.label :startDate, 'Start Date' %><br />
 		<%= f.text_field :startDate %>
-
   </div>
+
   <div class="field">
     <%= f.label :endDate, 'End Date' %><br />
 		<%= f.text_field :endDate %>
-
   </div>
+
   <div class="field">
     <%= f.label :startTime, 'Start Time' %><br />
     <%= f.time_select :startTime, {:minute_step => 15} %>
   </div>
+
   <div class="field">
     <%= f.label :endTime, 'End Time' %><br />
     <%= f.time_select :endTime, {:minute_step => 15} %>
   </div>
+
 	<div class="field">
     <%= f.label :supporter_id, 'Who?' %><br />
 		<% if current_user.login == "it" %>
@@ -36,6 +38,11 @@
 		<% else %>
 	  	<%= f.collection_select( :supporter_id, Supporter.devs, :id, :name) %>
 	<% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label :all_day, "All Day?" %><br />
+    <%= f.check_box :all_day %>
   </div>
   <div class="actions">
     <%= f.submit %>
