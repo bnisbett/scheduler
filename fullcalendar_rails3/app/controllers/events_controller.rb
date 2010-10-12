@@ -64,6 +64,9 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(params[:event])
 		if @event.save
+		  
+		  Notifier.welcome_email(@event.supporter).deliver
+		  
 		  respond_to do |format|
 		    format.html { redirect_to events_path }
 		    format.js
