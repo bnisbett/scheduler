@@ -10,13 +10,6 @@ describe :event_endDate_before_startDate do
    end
  end
 
-  describe :event_without_name do
-    it "should validate presence of name" do
-      event = Factory.build(:event, :name => nil)
-      event.should be_invalid
-      event.should have(1).error_on(:name)
-    end
-  end
   
   describe :event_without_startDate do
     it "should validate presence of start date" do
