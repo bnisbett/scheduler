@@ -119,7 +119,7 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     if @event
       @event.endDate = (params[:minute_delta].to_i).minutes.from_now((params[:day_delta].to_i).days.from_now(@event.endDate))
-      @event.endTime = (params[:minute_delta].to_i).minutes.from_now(@event.endTime)
+      #@event.endTime = (params[:minute_delta].to_i).minutes.from_now(@event.endTime)
       @event.save
     end    
   end
