@@ -14,6 +14,6 @@ class Notifier < ActionMailer::Base
       @events.each do |event|
         mail(:to => event.supporter.email,
              :subject => "Reminder: You are on call in one week")
-         end
+      end
   end
 end

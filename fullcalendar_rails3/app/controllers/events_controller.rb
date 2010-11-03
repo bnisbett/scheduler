@@ -43,7 +43,7 @@ class EventsController < ApplicationController
    # @event = Event.new
 		@event = Event.new(:endTime => 1.hour.from_now)
     respond_to do |format|
-      format.html # new.html.erb
+      format.html { redirect_to events_path } # new.html.erb
       format.xml  { render :xml => @event }
 			format.js
     end
@@ -53,7 +53,7 @@ class EventsController < ApplicationController
   def edit
     @event = Event.find(params[:id])
 		respond_to do |format|
-      format.html # edit.html.erb
+      format.html { redirect_to events_path } # edit.html.erb
       format.xml  { render :xml => @event }
 			format.js
     end
@@ -65,7 +65,7 @@ class EventsController < ApplicationController
     @event = Event.new(params[:event])
 		if @event.save
 		  
-		  Notifier.welcome_email(@event.supporter).deliver
+	#	  Notifier.welcome_email(@event.supporter).deliver
 		  
 		  respond_to do |format|
 		    format.html { redirect_to events_path }

@@ -19,5 +19,7 @@ FullcalendarRails3::Application.configure do
 
   # Print deprecation notices to the Rails logger
   config.active_support.deprecation = :log
+  
+  config.gem "rufus-scheduler", :lib => "rufus/scheduler"
 
 end

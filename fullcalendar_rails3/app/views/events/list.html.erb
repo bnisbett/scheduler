@@ -9,8 +9,8 @@
 		
 	<tr>
 	<% if event.all_day %>
-		<td>All Day</td>
-		<td>All Day</td>
+		<td><%= event.startDate.strftime("%a, %d %b %Y") %> - All Day</td>
+		<td><%= event.endDate.strftime("%a, %d %b %Y") %> - All Day</td>
 	<% else %>
 	  <td><%= event.startDate.strftime("%a, %d %b %Y") %> at <%= event.startTime.strftime("%I:%M%p") %></td>
 		<td><%= event.endDate.strftime("%a, %d %b %Y") %> at <%= event.endTime.strftime("%I:%M%p") %></td>
