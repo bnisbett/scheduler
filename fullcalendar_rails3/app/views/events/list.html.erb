@@ -15,7 +15,7 @@
 	  <td><%= event.startDate.strftime("%a, %d %b %Y") %> at <%= event.startTime.strftime("%I:%M%p") %></td>
 		<td><%= event.endDate.strftime("%a, %d %b %Y") %> at <%= event.endTime.strftime("%I:%M%p") %></td>
 	<% end %>
-    <td><%=h event.supporter.name %></td>
+    <td><%=h event.supporter.name %> (<%=event.supporter.role%>)</td>
   </tr>
 <% end %>
 </table>

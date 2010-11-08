@@ -15,10 +15,18 @@ class Supporter < ActiveRecord::Base
   def self.its
     where(:isIT => true)
   end
-
-
-
-
-
+  
+  def isRole?
+    if self.role == "Developer"
+      true
+    else
+      false
+    end
+  end
+  
+  def self.notice
+    time_range = Date.today + 1.week
+    Supporter.joins(:events).where(:events => {:startDate => time_range})
+  end
 
 end

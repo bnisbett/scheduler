@@ -8,12 +8,10 @@ class Notifier < ActionMailer::Base
            :subject => "Welcome to My Awesome Site")
   end
   
-  def reminder_email(events)
-      @events = events
+  def reminder_email(supporter)
+      @supporter = supporter
       @url  = "http://example.com/login"
-      @events.each do |event|
-        mail(:to => event.supporter.email,
+        mail(:to => @supporter.email,
              :subject => "Reminder: You are on call in one week")
-      end
   end
 end
