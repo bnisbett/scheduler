@@ -1,8 +1,9 @@
 class SupportersController < ApplicationController
+  before_filter :require_user, :except => [:index]
   # GET /supporters
   # GET /supporters.xml
   def index
-    @supporters = Supporter.all
+   # @supporters = Supporter.all
     @devs = Supporter.devs
     @its = Supporter.its
 
