@@ -7,15 +7,15 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.xml
   def index
-		@events = Event.all
-    @nowevents = Event.where(["startDate >= :start AND endDate <= :end", {:start=>Time.at(params['start'].to_i).to_formatted_s(:db), :end=>Time.at(params[:end].to_i).to_s(format = :db) }])
-
+		@allevents = Event.all
+    @events = Event.where(["startDate >= :start AND endDate <= :end", {:start=>Time.at(params[:start].to_i).to_formatted_s(:db), :end=>Time.at(params[:end].to_i).to_s(format = :db) }])
+    
 		eventsArray = [] 
-    @nowevents.each do |event|
+    @events.each do |event|
       if current_user
-        eventsArray << {:id => event.id,:allDay => event.all_day, :editable => true, :title => "#{event.supporter.name}", :start => "#{event.startDate.to_s + " " + event.startTime.to_s[11..18]}", :end => "#{event.endDate.to_s + " " + event.endTime.to_s[11..18]}", :className => "#{event.supporter.isIT}"}
+        eventsArray << {:id => event.id,:allDay => event.all_day, :editable => true, :title => "#{event.supporter.name}", :start => "#{event.startDate.to_s + " " + event.startTime.to_s[11..18]}", :end => "#{event.endDate.to_s + " " + event.endTime.to_s[11..18]}", :className => "#{event.supporter.role}"}
       else
-        eventsArray << {:id => event.id,:allDay => event.all_day, :title => "#{event.supporter.name}", :start => "#{event.startDate.to_s + " " + event.startTime.to_s[11..18]}", :end => "#{event.endDate.to_s + " " + event.endTime.to_s[11..18]}", :className => "#{event.supporter.isIT}"}
+        eventsArray << {:id => event.id,:allDay => event.all_day, :title => "#{event.supporter.name}", :start => "#{event.startDate.to_s + " " + event.startTime.to_s[11..18]}", :end => "#{event.endDate.to_s + " " + event.endTime.to_s[11..18]}", :className => "#{event.supporter.role}"}
       end
     end
 
@@ -63,10 +63,7 @@ class EventsController < ApplicationController
   # POST /events.xml
   def create
     @event = Event.new(params[:event])
-		if @event.save
-		  
-	#	  Notifier.welcome_email(@event.supporter).deliver
-		  
+		if @event.save		  
 		  respond_to do |format|
 		    format.html { redirect_to events_path }
 		    format.js
