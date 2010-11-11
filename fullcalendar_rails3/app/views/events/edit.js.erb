@@ -1,4 +1,4 @@
-$("#event_desc").html("<%= escape_javascript(render(:partial => 'form')) %>");
+$("#event_desc").html("<%= escape_javascript(render(:partial => 'editform')) %>");
 
 $.validator.addMethod("endDateGreater", function(value,element,params){
 	var startDate = new Date($('#event_startDate').val().slice(0,10));
