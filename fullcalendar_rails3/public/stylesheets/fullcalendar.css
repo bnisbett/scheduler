@@ -244,11 +244,11 @@ table.fc-header {
 	color: #fff;            /* default TEXT color */
 	}
 	
-.false,
+.Developer,
 .fc-agenda .myclass .fc-event-time,
-.false a {
-  background-color: #000;
-  border-color: #000;
+.Developer a {
+  background-color: #28800f;
+  border-color: #28800f;
   color: #fff;
   }
 	
