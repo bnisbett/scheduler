@@ -1,28 +1,24 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Name:</b>
+  <b>Name: </b>
   <%= @supporter.name %>
 </p>
 
 <p>
-  <b>Email:</b>
+  <b>Email: </b>
   <%= @supporter.email %>
 </p>
 
 <p>
-  <b>Phone:</b>
+  <b>Phone: </b>
   <%= @supporter.phone %>
 </p>
-<% if @supporter.isIT? %>
+
 <p>
-	<b>Role:</b> IT
+	<b>Role: </b>
+<%= @supporter.role %>
 </p>
-<% else %>
-<p>
-	<b>Role:</b> Developer
-</p>
-<% end %>
 
 
 <%= link_to 'Edit', edit_supporter_path(@supporter) %> |

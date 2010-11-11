@@ -24,9 +24,8 @@
     <%= f.text_field :phone %>
   </div>
   <div class="field">
-    <%= f.label :isIT, 'IT/Developer' %><br />
-
-		<%= f.select :isIT, [["Developer", "0"], ["IT Personnel", "1"]] %>
+    <%= f.label :role, 'IT/Developer' %><br />
+		<%= f.select :role, [["Developer", "Developer"], ["IT Personnel", "IT Personnel"]] %>
   </div>
   <div class="actions">
     <%= f.submit %>

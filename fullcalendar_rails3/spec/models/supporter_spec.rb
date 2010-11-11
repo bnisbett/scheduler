@@ -26,11 +26,11 @@ describe Supporter do
     end
   end
 #begin
-  describe :supporter_without_isIT do
+  describe :supporter_without_role do
     it "should validate presence of IT/Developer Status" do
-      supporter = Factory.build(:supporter, :isIT => nil)
+      supporter = Factory.build(:supporter, :role => nil)
       supporter.should be_invalid
-      supporter.should have(1).error_on(:isIT)
+      supporter.should have(1).error_on(:role)
     end
   end
 #end  
