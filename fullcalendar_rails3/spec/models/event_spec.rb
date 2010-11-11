@@ -9,7 +9,6 @@ describe :event_endDate_before_startDate do
      event.should have(1).error_on(:endDate)
    end
  end
-
   
   describe :event_without_startDate do
     it "should validate presence of start date" do
@@ -42,8 +41,5 @@ describe :event_endDate_before_startDate do
       event.should have(1).error_on(:supporter_id)
     end
   end
- 
-
-
   
 end
