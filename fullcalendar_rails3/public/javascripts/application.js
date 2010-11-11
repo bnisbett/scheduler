@@ -112,7 +112,6 @@ $(document).ready(function(){
                   $('#loading').hide();
           },
           events: "/events",
-          //eventSources: ["/devevents","/itevents"],
           timeFormat: 'h:mm t{ - h:mm t} ',
           dragOpacity: "0.5",
           eventDrop: function(event, dayDelta, minuteDelta, allDay, revertFunc){
