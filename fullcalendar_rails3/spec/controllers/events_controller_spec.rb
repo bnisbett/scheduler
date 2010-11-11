@@ -5,7 +5,7 @@ describe EventsController do
   describe "GET 'index'" do
     it "should be successful" do
       events = [mock(:event), mock(:event)]
-      Event.should_receive(:all).and_return(events)
+      Event.should_receive(:where).with(["startDate >= :start AND endDate <= :end", {:start=>"1969-12-31 19:00:00", :end=>"1969-12-31 19:00:00"}]).and_return(events)
       get 'index'
       response.should render_template('events/index')
     end
@@ -24,14 +24,14 @@ describe EventsController do
           #Event.stub!(:find).and_return([@event])
         end
         
-        it "should be successful" do
+        it "should be redirected" do
           get :edit, :id => "1"
-          response.should be_success
+          response.should be_redirect
         end
 
         it "should render edit template" do
           get :edit, :id => '1'
-          response.should render_template('edit')
+          response.should redirect_to(:action =>'index')
         end
         
         it "should render show template" do
@@ -41,9 +41,6 @@ describe EventsController do
       end
     end
 end
-  
-  
-  
   
   
 =begin   
