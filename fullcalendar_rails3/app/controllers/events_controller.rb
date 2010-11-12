@@ -7,7 +7,7 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.xml
   def index
-		@allevents = Event.all
+		@allevents = Event.all #not needed but spec refuses to work because html response looks for events with strange dates
     @events = Event.where(["startDate >= :start AND endDate <= :end", {:start=>Time.at(params[:start].to_i).to_formatted_s(:db), :end=>Time.at(params[:end].to_i).to_s(format = :db) }])
     
 		eventsArray = [] 
@@ -105,19 +105,24 @@ class EventsController < ApplicationController
 	def move
     @event = Event.find(params[:id])
     if @event
-      @event.startDate = (params[:minute_delta].to_i).minutes.from_now((params[:day_delta].to_i).days.from_now(@event.startDate))
-      @event.endDate = (params[:minute_delta].to_i).minutes.from_now((params[:day_delta].to_i).days.from_now(@event.endDate))
+      # @event.startDate = (params[:minute_delta].to_i).minutes.from_now((params[:day_delta].to_i).days.from_now(@event.startDate))
+      # @event.endDate = (params[:minute_delta].to_i).minutes.from_now((params[:day_delta].to_i).days.from_now(@event.endDate))
+      @event.startDate = (params[:day_delta].to_i).days.from_now(@event.startDate)
+      @event.endDate = (params[:day_delta].to_i).days.from_now(@event.endDate)
       #@event.all_day = params[:all_day]
       @event.save
     end
+    render :nothing => true
   end
   
   def resize
     @event = Event.find(params[:id])
     if @event
-      @event.endDate = (params[:minute_delta].to_i).minutes.from_now((params[:day_delta].to_i).days.from_now(@event.endDate))
+      @event.endDate = (params[:day_delta].to_i).days.from_now(@event.endDate)
+      #@event.endDate = (params[:minute_delta].to_i).minutes.from_now((params[:day_delta].to_i).days.from_now(@event.endDate))
       #@event.endTime = (params[:minute_delta].to_i).minutes.from_now(@event.endTime)
       @event.save
-    end    
+    end
+    render :nothing => true    
   end
 end
