@@ -91,3 +91,6 @@ div.field, div.actions {
 	white-space:nowrap;
 	width:1%;
 }
+.alert {
+	color: red;
+}

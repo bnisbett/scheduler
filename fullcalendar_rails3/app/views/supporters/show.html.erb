@@ -20,6 +20,7 @@
 <%= @supporter.role %>
 </p>
 
-
-<%= link_to 'Edit', edit_supporter_path(@supporter) %> |
+<% if (current_user.login == "it" && @supporter.role =="IT Personnel")  || (current_user.login == "dev" && @supporter.role =="Developer") %>
+	<%= link_to 'Edit', edit_supporter_path(@supporter) %> |
+<% end %>
 <%= link_to 'Back', supporters_path %>

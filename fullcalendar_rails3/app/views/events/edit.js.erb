@@ -1,4 +1,8 @@
-$("#event_desc").html("<%= escape_javascript(render(:partial => 'editform')) %>");
+<% if (current_user.login == "it" && @event.supporter.role =="IT Personnel") || (current_user.login == "dev" && @event.supporter.role =="Developer")%>
+	$("#event_desc").html("<%= escape_javascript(render(:partial => 'editform')) %>");
+<% else %>
+	$("#event_desc").append("<p class='alert'> You are not authorized to Edit this Event</p>");
+<% end %>
 
 $.validator.addMethod("endDateGreater", function(value,element,params){
 	var startDate = new Date($('#event_startDate').val().slice(0,10));

@@ -9,8 +9,7 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 gem 'authlogic', :git => 'git://github.com/odorcicd/authlogic.git', :branch => 'rails3'
 gem 'meta_where'
 gem 'rufus-scheduler'
-#gem 'authlogic', ">=2.1.6"
-#gem 'clockwork', '0.2.1'
+# gem 'cancan'
 #gem 'delayed_job', :git =>"git://github.com/collectiveidea/delayed_job.git"
 
 group :development do

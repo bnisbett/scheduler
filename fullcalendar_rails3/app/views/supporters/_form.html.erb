@@ -23,10 +23,14 @@
     <%= f.label :phone %><br />
     <%= f.text_field :phone %>
   </div>
-  <div class="field">
-    <%= f.label :role, 'IT/Developer' %><br />
-		<%= f.select :role, [["Developer", "Developer"], ["IT Personnel", "IT Personnel"]] %>
-  </div>
+	<div class="field">
+  	<%= f.label :role, 'IT/Developer' %><br />
+		<% if current_user.login =="dev" %>
+			<%= f.select :role, [["Developer", "Developer"]] %>
+		<% else %>
+			<%= f.select :role, [["IT Personnel", "IT Personnel"]] %>  	
+		<% end %>
+	</div>
   <div class="actions">
     <%= f.submit %>
   </div>

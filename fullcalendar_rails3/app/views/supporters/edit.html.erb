@@ -1,6 +1,8 @@
-<h1>Editing supporter</h1>
-
-<%= render 'form' %>
-
+<h1>Editing Supporter</h1>
+<% if (current_user.login == "it" && @supporter.role =="IT Personnel") || (current_user.login == "dev" && @supporter.role =="Developer")%>
+	<%= render 'form' %>
+<% else %>
+	<p class="alert">You Are Not Authorized to Edit <%= @supporter.role %></p>
+<% end %>
 <%= link_to 'Show', @supporter %> |
 <%= link_to 'Back', supporters_path %>
